@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class ReflectionForm extends Component {
     constructor(props) {
         super(props)
-    
+    //Initalizing properties in the state object so the input values have variables
         this.state = {
              title:"",
              message:"",
@@ -12,6 +12,7 @@ export default class ReflectionForm extends Component {
              journalEntries:[]
         }
     }
+    //Capturing values to from input fields and storing them in their respective state
     handleChange = (event) =>{
         if (event.target.name ==="title"){
             this.setState({title:event.target.value})
@@ -26,11 +27,21 @@ export default class ReflectionForm extends Component {
             this.setState({confidence:event.target.value})
         }
     }
+    //Function for clicking submit button
     handleSubmission =(event) =>{
+        //Stop Reloading 
         event.preventDefault();
+
+        //Pushes values from input field into a list
         this.state.journalEntries.push({title:this.state.title,date:this.state.date,message:this.state.message,confidence:this.state.confidence})
+
+        //Update list with values
         this.setState({journalEntries:this.state.journalEntries})
+
+        //Santiy Check
         console.log(this.state.journalEntries);
+
+        //For callback function so updated list can be retrieved 
         this.props.getEntries(this.state.journalEntries)
     }
     render() {

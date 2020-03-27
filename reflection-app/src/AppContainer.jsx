@@ -5,11 +5,12 @@ import Reflection from './Reflection'
 export default class AppContainer extends Component {
     constructor(props) {
         super(props)
-    
+    //Initializing list that will update entries and pass journal entries to child component
         this.state = {
              reflectionList:[],
         }
     }
+    //Callback function so list could be retrieve from form component and passed down to reflection component to be rendered
     getEntries =(updatedEntries)=>{
         this.setState({reflectionList:updatedEntries})
     }
