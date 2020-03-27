@@ -8,13 +8,14 @@ export default class Reflection extends Component {
                 {
                     this.props.journalEntries.map((entries,index) =>{
                         return(<div>
-                            <li>
-                                <ul>{entries.date}
+                            <ul>
+                                <li>
+                                    {entries.date}
                                     <p>{entries.title}</p>
                                     <p>{entries.message}</p>
                                     <p>My confidence is {entries.confidence}.</p>
-                                </ul>
-                            </li>
+                                </li>
+                            </ul>
                         </div>)
                     })
                 }
